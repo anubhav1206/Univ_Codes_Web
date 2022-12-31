@@ -15,11 +15,18 @@ main {
     max-width: 95%;
 }
 
+@media (max-width: 610px) {
+    main {
+        width: 90%;
+    }
+}
+
 h1 {
     font-size: 3rem;
     font-weight: 800;
     margin: 0;
     text-align: left;
+    max-width: 95%;
 }
 
 .text-gradient {
@@ -63,4 +70,12 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+@media (max-width: 610px) {
+    .foldersContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }

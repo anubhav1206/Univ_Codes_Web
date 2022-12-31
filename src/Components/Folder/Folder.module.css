@@ -11,6 +11,12 @@
     max-width: fit-content;
 }
 
+@media (max-width: 610px) {
+    .folder {
+        max-width: 100%;
+    }
+}
+
 .folder>div:first-child {
     display: flex;
     flex-direction: row;
@@ -33,7 +39,7 @@
     margin: 0;
 }
 
-.linksSection > a {
+.linksSection>a {
     border-radius: 5px;
     padding: 5px 10px 5px 10px;
     margin-right: 5px;
@@ -44,7 +50,7 @@
     background-color: aliceblue;
 }
 
-.linksSection > a:hover {
+.linksSection>a:hover {
     transform: scale(1.07);
     background-color: #9ea4a8;
     color: white;
@@ -53,7 +59,7 @@
     -webkit-transition: all .2s ease;
 }
 
-.linksSection > a:not(:hover) {
+.linksSection>a:not(:hover) {
     transition: all 0.2s ease;
     -webkit-transition: all .2s ease;
 }

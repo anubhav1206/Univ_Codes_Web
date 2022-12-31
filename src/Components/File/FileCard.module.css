@@ -10,6 +10,11 @@
     background-position: 0%;
     max-width: fit-content;
 }
+@media (max-width: 610px) {
+    .file {
+        max-width: 100%;
+    }
+}
 
 .file>div:first-child {
     display: flex;
