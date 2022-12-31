@@ -1,0 +1,66 @@
+:root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+}
+
+html {
+    font-family: system-ui, sans-serif;
+    background-color: #F6F6F6;
+}
+
+main {
+    margin: auto;
+    padding: 1.5rem;
+    width: 95%;
+    max-width: 95%;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    text-align: left;
+}
+
+.text-gradient {
+    background-image: var(--accent-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+}
+
+.instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+}
+
+.instructions>p{
+    text-align: justify;
+}
+
+.link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+}
+
+.empty {
+    display: block !important;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+
+.foldersContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

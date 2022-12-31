@@ -1,0 +1,59 @@
+.folder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 15px;
+    background-image: linear-gradient(45deg, #9378c2, #d6bdd2 20%, #ffffff 60%);
+    background-size: 400%;
+    background-position: 0%;
+    max-width: fit-content;
+}
+
+.folder>div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.folder>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.icon {
+    vertical-align: middle;
+}
+
+.name {
+    display: inline-block;
+    margin: 0;
+}
+
+.linksSection > a {
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #9ea4a8;
+    background-color: aliceblue;
+}
+
+.linksSection > a:hover {
+    transform: scale(1.07);
+    background-color: #9ea4a8;
+    color: white;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    -webkit-transition: all .2s ease;
+}
+
+.linksSection > a:not(:hover) {
+    transition: all 0.2s ease;
+    -webkit-transition: all .2s ease;
+}

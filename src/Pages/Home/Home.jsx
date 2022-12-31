@@ -1,0 +1,75 @@
+import { useState, useEffect } from 'react'
+import './Home.css'
+import Folder from '../../Components/Folder/Folder'
+import HomeWarningText from '../../Components/HomeWarningText/HomeWarningText'
+const token = import.meta.env.VITE_TOKEN
+
+function Home() {
+  const [data, setData] = useState(null)
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [color, setColor] = useState('black')
+
+  const updateTheme = () => {
+    color === 'black' ? setColor('white') : setColor('black')
+  }
+
+  useEffect(() => {
+    document.title = 'Bienvenido a Univ_Codes'
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/StephanJ98/Univ_Codes/contents/?ref=main",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `token ${token}`
+            }
+          }
+        )
+        const data = await response.json()
+        setData(data)
+      } catch (error) {
+        setError(error)
+      } finally {
+        setLoading(false)
+        let elemFolder = document.querySelector(".foldersContainer");
+        if (elemFolder?.childNodes?.length <= 1) {
+          let text = document.createElement("p");
+          text.innerText = "No han encontrado carpetas a mostrar";
+          elemFolder.classList.add("empty");
+          elemFolder.appendChild(text);
+        }
+      }
+    };
+    fetchData()
+  }, [])
+
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
+    <main>
+      <h1>Bienvenido a <span className="text-gradient">Univ_Codes</span></h1>
+      <div className="instructions">
+        {<HomeWarningText color={color} />}
+      </div>
+      <div className="instructions foldersContainer">
+        {
+          data.map((folder) =>
+            folder?.type === "dir" ? <Folder key={folder.name} data={folder} /> : null
+          )
+        }
+      </div>
+    </main>
+  )
+}
+
+export default Home
