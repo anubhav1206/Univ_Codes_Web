@@ -58,7 +58,6 @@ export default function Ficheros() {
             } catch (error) {
                 setError(error)
             } finally {
-                setLoading(false)
                 let elemFolder = document.querySelector(`.${styles.folderContainer}`)
                 if (elemFolder?.childNodes.length < 1) {
                     let text = document.createElement("p");
@@ -74,6 +73,7 @@ export default function Ficheros() {
                     elemFile.classList.add(styles.empty);
                     elemFile.appendChild(text);
                 }
+                setLoading(false)
             }
         };
         fetchData()

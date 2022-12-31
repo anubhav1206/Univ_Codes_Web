@@ -21,7 +21,7 @@ export default function HomeWarningText({ color }) {
                 🤖 En caso de querer contribuir con documentos que excedan 50MB, por favor usa una herramienta del tipo 7zip para comprimir el archivo y dividirlo en partes para no exceder el límite. Esta medida es para evitar al máximo el empleo de Git LFS que es el que provoca el problema de Unable to render code block comentado anteriormente.
             </p>
 
-            <p style={{ color: color, backgroundColor: 'orange', padding: '5px', borderRadius: '5px', textAlign: 'justify', fontWeight: 'bolder', textAlign: 'justify' }}>
+            <p style={{ color: color, backgroundColor: 'orange', padding: '5px', borderRadius: '5px', textAlign: 'justify', fontWeight: 'bolder' }}>
                 💢 En caso contrario, si consideras que algún documento no debería estar ahí o que es de tu propiedad. Simplemente, crea una issue especificando a que documento te refieres, el porqué consideras que de debe eliminado y en caso necesario demostrando la autoría del documento al que te refieres. 💢
             </p>
         </>
