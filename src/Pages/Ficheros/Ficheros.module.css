@@ -41,7 +41,9 @@ main {
 }
 
 @media (max-width: 610px) {
-    .folderContainer, .fileContainer {
+
+    .folderContainer,
+    .fileContainer {
         display: flex;
         flex-direction: column;
         justify-content: space-between;

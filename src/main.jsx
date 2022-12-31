@@ -5,6 +5,7 @@ import './index.css'
 import NotFound from './Pages/NotFound/NotFound'
 import Home from './Pages/Home/Home'
 import Materias from './Pages/Materias/Materias'
+import Ficheros from './Pages/Ficheros/Ficheros'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/ficheros/:sha",
-    element: <p>Fichero</p>,
+    element: <Ficheros />,
     errorElement: <NotFound />
   }
 ])

@@ -17,7 +17,7 @@ main {
 
 @media (max-width: 610px) {
     main {
-        width: 90%;
+        width: 85%;
     }
 }
 
@@ -27,6 +27,7 @@ h1 {
     margin: 0;
     text-align: left;
     max-width: 95%;
+    overflow-wrap: break-word;
 }
 
 .text-gradient {
