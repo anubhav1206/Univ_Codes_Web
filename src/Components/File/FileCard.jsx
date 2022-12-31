@@ -5,7 +5,7 @@ export default function FileCard({ data, color }) {
     return (
         <div className={styles.file} style={{ color: color }}>
             <div className={styles.titleSection}>
-                <FileIcon className={styles.icon} width={'2rem'} height={'2rem'} />
+                <FileIcon className={styles.icon} width={'30px'} height={'30px'} />
                 <h3 className={styles.name}>{data.name}</h3>
             </div>
             <div className={styles.linksSection}>

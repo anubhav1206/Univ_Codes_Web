@@ -34,6 +34,7 @@
 
 .icon {
     vertical-align: middle;
+    min-width: 30px;
 }
 
 .name {
@@ -66,5 +67,6 @@
     -webkit-transition: all .2s ease;
 }
 
-
-/* dowloadLink */
+.titleSection {
+    word-break: break-all;
+}
