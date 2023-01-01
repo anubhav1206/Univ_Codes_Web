@@ -10,7 +10,6 @@ export default function Ficheros() {
     const [item, setItem] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [path, setPath] = useState('')
     const location = useLocation()
 
     const updateTheme = () => {
@@ -19,31 +18,19 @@ export default function Ficheros() {
 
     useEffect(() => {
         const fetchData = async () => {
-            setPath(location.pathname.split("/")[2])
             try {
 
                 /** First fetch to request data tree from github */
-                const response = await fetch(
-                    "https://api.github.com/repos/StephanJ98/Univ_Codes/git/trees/26b15012af4c796283b271e3668ecef6692c5c69?recursive=true",
-                    {
-                        method: "GET",
-                        headers: {
-                            Authorization: `token ${token}`
-                        }
-                    }
-                )
-                const data = await response.json()
-                let dataTemp = Object.values(data)
+                let dataTemp = JSON.parse(localStorage.getItem('dataTree'))
 
                 /** Second fetch to request data of the selected folder*/
-
                 let sha = location.pathname.split("/")[2]
-
-                const res = dataTemp[2].find((item) => item.sha === sha)
+                const res = dataTemp.find((item) => item.sha === sha)
+                
                 document.title = `Estas en ${res?.path}`
                 setItem(res)
 
-                const response2 = await fetch(
+                const response = await fetch(
                     `https://api.github.com/repos/StephanJ98/Univ_Codes/contents/${res.path}?ref=main`,
                     {
                         method: "GET",
@@ -53,8 +40,8 @@ export default function Ficheros() {
                     }
                 );
 
-                const data2 = await response2.json();
-                setData(data2)
+                const data = await response.json();
+                setData(data)
             } catch (error) {
                 setError(error)
             } finally {
