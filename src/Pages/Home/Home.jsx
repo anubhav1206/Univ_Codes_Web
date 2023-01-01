@@ -10,7 +10,6 @@ function Home() {
   const [loading, setLoading] = useState(true)
   const [color, setColor] = useState('black')
 
-
   const updateTheme = () => {
     color === 'black' ? setColor('white') : setColor('black')
   }
@@ -30,8 +29,6 @@ function Home() {
           }
         )
         const data = await response.json()
-
-        /* ######################### */
         const responseT = await fetch(
           "https://api.github.com/repos/StephanJ98/Univ_Codes/git/trees/26b15012af4c796283b271e3668ecef6692c5c69?recursive=true",
           {
@@ -43,7 +40,6 @@ function Home() {
         )
         const dataT = await responseT.json()
         localStorage.setItem('dataTree', JSON.stringify(Object.values(dataT)[2]))
-        /* ######################### */
 
         setData(data)
       } catch (error) {
