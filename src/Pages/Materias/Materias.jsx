@@ -10,7 +10,6 @@ export default function Materias() {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
     const [path, setPath] = useState('')
-    const [dataTree, setDataTree] = useState([])
     const location = useLocation()
 
     const updateTheme = () => {
@@ -18,7 +17,6 @@ export default function Materias() {
     }
 
     useEffect(() => {
-        setDataTree(JSON.parse(localStorage.getItem('dataTree')))
         document.title = `Estas en ${location.pathname.split("/")[2]}`
 
         const fetchData = async () => {
