@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Folder from '../../Components/Folder/InnerFolder'
 import FileCard from '../../Components/File/FileCard'
+import Back from '../../assets/Icons/Back'
 import styles from './Materias.module.css'
 const token = import.meta.env.VITE_TOKEN
 
@@ -11,6 +12,7 @@ export default function Materias() {
     const [loading, setLoading] = useState(true)
     const [path, setPath] = useState('')
     const location = useLocation()
+    const navigate = useNavigate()
 
     const updateTheme = () => {
         color === 'black' ? setColor('white') : setColor('black')
@@ -68,7 +70,9 @@ export default function Materias() {
 
     return (
         <main>
-            <h1>Estas en <span className={styles.text_gradient}>{path}</span></h1>
+            <h1>
+                <Back className={styles.icon} onClick={() => navigate(-1)}/> Estas en <span className={styles.text_gradient}>{path}</span>
+            </h1>
             <div className={`${styles.instructions} ${styles.folderContainer}`}>
                 {
                     data.map((elem) =>
