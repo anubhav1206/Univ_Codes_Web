@@ -81,3 +81,14 @@ h1 {
     gap: 1rem;
     padding: 0;
 }
+
+.icon {
+    vertical-align: middle;
+    background-color: gainsboro;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.icon:hover {
+    background-color: #818181;
+}
