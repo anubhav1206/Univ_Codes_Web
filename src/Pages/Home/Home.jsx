@@ -20,18 +20,20 @@ function Home() {
 
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://api.github.com/repos/StephanJ98/Univ_Codes/contents/?ref=main",
+        /**Get sha from github */
+        const shaRequest = await fetch('https://api.github.com/repos/StephanJ98/Univ_Codes/branches/main',
           {
-            method: "GET",
+            method: 'GET',
             headers: {
               Authorization: `token ${token}`
             }
-          }
-        )
-        const data = await response.json()
+          })
+
+        const shaResponse = await shaRequest.json()
+
+        /**Get all the github tree */
         const responseT = await fetch(
-          "https://api.github.com/repos/StephanJ98/Univ_Codes/git/trees/26b15012af4c796283b271e3668ecef6692c5c69?recursive=true",
+          `https://api.github.com/repos/StephanJ98/Univ_Codes/git/trees/${shaResponse.commit.sha}?recursive=true`,
           {
             method: "GET",
             headers: {
@@ -42,6 +44,17 @@ function Home() {
         const dataT = await responseT.json()
         localStorage.setItem('dataTree', JSON.stringify(Object.values(dataT)[2]))
 
+        /**Get Main folders name */
+        const response = await fetch(
+          "https://api.github.com/repos/StephanJ98/Univ_Codes/contents/?ref=main",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `token ${token}`
+            }
+          }
+        )
+        const data = await response.json()
         setData(data)
       } catch (error) {
         setError(error)
