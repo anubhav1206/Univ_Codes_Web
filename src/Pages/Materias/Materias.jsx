@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Folder from '../../Components/Folder/InnerFolder'
 import FileCard from '../../Components/File/FileCard'
 import Back from '../../assets/Icons/Back'
+import { Ring } from '@uiball/loaders'
 import styles from './Materias.module.css'
 const token = import.meta.env.VITE_TOKEN
 
@@ -61,7 +62,14 @@ export default function Materias() {
 
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Ring
+                size={60}
+                lineWeight={10}
+                speed={2}
+                color="gainsboro"
+            />
+        </div>
     }
 
     if (error) {
@@ -71,7 +79,7 @@ export default function Materias() {
     return (
         <main>
             <h1>
-                <Back className={styles.icon} onClick={() => navigate(-1)}/> Estas en <span className={styles.text_gradient}>{path}</span>
+                <Back className={styles.icon} onClick={() => navigate(-1)} /> Estas en <span className={styles.text_gradient}>{path}</span>
             </h1>
             <div className={`${styles.instructions} ${styles.folderContainer}`}>
                 {

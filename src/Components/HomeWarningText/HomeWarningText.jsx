@@ -9,7 +9,7 @@ export default function HomeWarningText({ color }) {
                 Esta página sirve de interfaz para el repositorio GitHub <a href="https://github.com/StephanJ98/Univ_Codes">Univ_Codes</a>. Y todo su contenido es directamente accesible y/o descargable desde esta página.
             </p>
 
-            <p style={{ color: color, textAlign: 'justify' }}>
+            <p style={{ color: color, textAlign: 'justify', wordBreak:'break-all' }}>
                 El repositorio es público, asi que si lo deseais es posible clonarlo, usando  el comando <b>git clone https://github.com/StephanJ98/Univ_Codes.git</b>, para ello es necesario tener instalado Git. Tambien es posible descargarlo directamente en ZIP desde este <a href="https://github.com/StephanJ98/Univ_Codes/archive/refs/heads/main.zip">enlace</a>. Pero no os recomendamos descargar el repositorio completo a no ser extrictamente necesario ya que puede pesar varios GB.
             </p>
 

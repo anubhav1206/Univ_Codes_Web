@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Folder from '../../Components/Folder/InnerFolder'
 import FileCard from '../../Components/File/FileCard'
 import Back from '../../assets/Icons/Back'
+import { Ring } from '@uiball/loaders'
 import styles from './Ficheros.module.css'
 const token = import.meta.env.VITE_TOKEN
 
@@ -70,7 +71,14 @@ export default function Ficheros() {
 
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Ring
+                size={60}
+                lineWeight={10}
+                speed={2}
+                color="gainsboro"
+            />
+        </div>
     }
 
     if (error) {

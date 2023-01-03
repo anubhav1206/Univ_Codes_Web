@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './Home.css'
 import Folder from '../../Components/Folder/Folder'
 import HomeWarningText from '../../Components/HomeWarningText/HomeWarningText'
+import { Ring } from '@uiball/loaders'
 const token = import.meta.env.VITE_TOKEN
 
 function Home() {
@@ -60,7 +61,14 @@ function Home() {
 
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <Ring
+        size={60}
+        lineWeight={10}
+        speed={2}
+        color="gainsboro"
+      />
+    </div>
   }
 
   if (error) {
