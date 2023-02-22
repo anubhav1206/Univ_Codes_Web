@@ -23,6 +23,32 @@ export default function Ficheros() {
         const fetchData = async () => {
             try {
 
+                if (!localStorage.getItem('dataTree')) {
+                    /**Get sha from github */
+                    const shaRequest = await fetch('https://api.github.com/repos/StephanJ98/Univ_Codes/branches/main',
+                        {
+                            method: 'GET',
+                            headers: {
+                                Authorization: `token ${token}`
+                            }
+                        })
+
+                    const shaResponse = await shaRequest.json()
+
+                    /**Get all the github tree */
+                    const responseT = await fetch(
+                        `https://api.github.com/repos/StephanJ98/Univ_Codes/git/trees/${shaResponse.commit.sha}?recursive=true`,
+                        {
+                            method: "GET",
+                            headers: {
+                                Authorization: `token ${token}`
+                            }
+                        }
+                    )
+                    const dataT = await responseT.json()
+                    localStorage.setItem('dataTree', JSON.stringify(Object.values(dataT)[2]))
+                }
+
                 /** First fetch to request data tree from github */
                 let dataTemp = JSON.parse(localStorage.getItem('dataTree'))
 
