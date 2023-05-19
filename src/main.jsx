@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import './index.css'
-import NotFound from './Pages/NotFound/NotFound'
-import Home from './Pages/Home/Home'
-import Materias from './Pages/Materias/Materias'
-import Ficheros from './Pages/Ficheros/Ficheros'
+import NotFound from './Pages/NotFound'
+import Home from './Pages/Home'
+import Materias from './Pages/Materias'
+import Ficheros from './Pages/Ficheros'
 
 import { Analytics } from '@vercel/analytics/react'
 
@@ -23,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: "/ficheros/:sha",
     element: <Ficheros />,
+    errorElement: <NotFound />
+  },
+  {
+    path: "/*",
+    element: <NotFound />,
     errorElement: <NotFound />
   }
 ])

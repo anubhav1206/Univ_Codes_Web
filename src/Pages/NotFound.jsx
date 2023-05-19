@@ -15,7 +15,7 @@ export default function NotFound() {
             <h2 style={{ textAlign: 'center', fontSize: '3rem' }}>Oops!</h2>
             <p style={{ textAlign: 'center' }}>Sorry, an unexpected error has occurred.</p>
             <p style={{ textAlign: 'center' }}>
-                <b>Cause:</b> <i>{error.statusText || error.message}</i>
+                <b>Cause: <i>{error ? error : '404 - Página no encontrada'}</i></b>
             </p>
         </div>
     )
