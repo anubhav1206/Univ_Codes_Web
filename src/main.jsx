@@ -7,6 +7,8 @@ import Home from './Pages/Home'
 import Materias from './Pages/Materias'
 import Ficheros from './Pages/Ficheros'
 
+import { Analytics } from '@vercel/analytics/react'
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,5 +35,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Analytics />
   </React.StrictMode>,
 )
