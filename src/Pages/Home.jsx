@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Folder from '../Components/Folder'
 import HomeWarningText from '../Components/HomeWarningText'
 import { Ring } from '@uiball/loaders'
-import Header from '../Components/header'
+import Header from '../Components/Header'
 import { useGetContent } from '../hooks/useGetContent'
 
 function Home() {
